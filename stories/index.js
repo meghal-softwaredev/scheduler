@@ -5,19 +5,19 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 
-import Button from "components/Button";
-import DayListItem from "components/DayListItem";
-import DayList from "components/DayList";
+import Button from "components/Button.jsx";
+import DayListItem from "components/DayListItem.jsx";
+import DayList from "components/DayList.jsx";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
-import Appointment from "components/Appointment/index.js";
-import Header from "components/Appointment/Header.js";
-import Empty from "components/Appointment/Empty.js";
-import Show from "components/Appointment/Show.js";
-import Confirm from "components/Appointment/Confirm.js";
-import Error from "components/Appointment/Error.js";
-import Form from "components/Appointment/Form.js";
-import Status from "components/Appointment/Status.js";
+import Appointment from "components/Appointment/index.jsx";
+import Header from "components/Appointment/Header.jsx";
+import Empty from "components/Appointment/Empty.jsx";
+import Show from "components/Appointment/Show.jsx";
+import Confirm from "components/Appointment/Confirm.jsx";
+import Error from "components/Appointment/Error.jsx";
+import Form from "components/Appointment/Form.jsx";
+import Status from "components/Appointment/Status.jsx";
 
 storiesOf("Button", module)
   .addParameters({

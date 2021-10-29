@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button.js"
+import Button from "../Button.jsx"
 
 export default function Confirm(props) {
   return (

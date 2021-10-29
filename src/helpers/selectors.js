@@ -7,3 +7,17 @@ export function getAppointmentsForDay(state, name) {
   const filteredAppointments = filteredDay[0].appointments.map(id => state.appointments[id]);
   return filteredAppointments;
 }
+
+// returns interview (object of student and interviewer) extracting from state
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const interviewerId = interview.interviewer;
+
+  const result = {
+    student: interview.student,
+    interviewer: state.interviewers[interviewerId]
+  }
+  return result;
+}
