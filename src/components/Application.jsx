@@ -23,7 +23,10 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment
     };
-    setState(prev => ({...prev, appointments}));
+    return axios.put(` /api/appointments/${id}`, {interview: interview})
+    .then(() => {
+      setState(prev => ({...prev, appointments}));
+    })
   }
   const parsedAppointment = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
