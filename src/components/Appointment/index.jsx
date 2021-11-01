@@ -5,6 +5,7 @@ import Empty from "./Empty.jsx";
 import Show from "./Show.jsx";
 import Form from "./Form.jsx";
 import Status from "./Status";
+import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
@@ -14,6 +15,8 @@ export default function Appointment(props) {
   const CREATE = "CREATE";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -24,6 +27,9 @@ export default function Appointment(props) {
     .then(() => {
       transition(SHOW);
     })
+    .catch(error => {
+      transition(ERROR_SAVE, true);
+    });
   }
   function deleteInterview(id) {
     transition(DELETING);
@@ -31,13 +37,16 @@ export default function Appointment(props) {
     .then(() => {
       transition(EMPTY);
     })
+    .catch(error => {
+      transition(ERROR_DELETE, true);
+    });
   }
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
   return (
     <article className="appointment">
-      <Header id={props.id} time={props.time} />
+      <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
       <Show
@@ -49,7 +58,7 @@ export default function Appointment(props) {
       {mode === CREATE && (
       <Form 
         interviewers={props.interviewers}
-        onCancel={() => transition(EMPTY)}
+        onCancel={back}
         onSave={save}
       />)}
       {mode === SAVING && (
@@ -61,6 +70,18 @@ export default function Appointment(props) {
         <Status 
           message="Deleting"
         />
+      )}
+      {mode === ERROR_SAVE && (
+        <Error
+          message="Could not Save Appointment."
+          onClose={back}
+        />
+      )}
+      {mode === ERROR_DELETE && (
+        <Error
+        message="Could not Delete Appointment."
+        onClose={back}
+      />
       )}
     </article>
   );
