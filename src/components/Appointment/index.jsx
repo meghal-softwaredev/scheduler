@@ -4,22 +4,32 @@ import Header from "./Header.jsx";
 import Empty from "./Empty.jsx";
 import Show from "./Show.jsx";
 import Form from "./Form.jsx";
+import Status from "./Status";
 import useVisualMode from "hooks/useVisualMode";
-import axios from "axios";
 
 export default function Appointment(props) {
   // const appointmentWithTime = "Appointment at " + props.time;
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
+  const SAVING = "SAVING";
+  const DELETING = "DELETING";
   function save(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };
+    transition(SAVING);
     props.bookInterview(props.id, interview)
     .then(() => {
       transition(SHOW);
+    })
+  }
+  function deleteInterview(id) {
+    transition(DELETING);
+    props.cancelInterview(props.id)
+    .then(() => {
+      transition(EMPTY);
     })
   }
   const { mode, transition, back } = useVisualMode(
@@ -33,6 +43,7 @@ export default function Appointment(props) {
       <Show
         student={props.interview.student}
         interviewer={props.interview.interviewer}
+        onDelete={deleteInterview}
       />
       )}
       {mode === CREATE && (
@@ -41,6 +52,16 @@ export default function Appointment(props) {
         onCancel={() => transition(EMPTY)}
         onSave={save}
       />)}
+      {mode === SAVING && (
+        <Status 
+          message="Saving"
+        />
+      )}
+      {mode === DELETING && (
+        <Status 
+          message="Deleting"
+        />
+      )}
     </article>
   );
 }
