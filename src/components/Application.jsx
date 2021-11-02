@@ -23,15 +23,15 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.put(` /api/appointments/${id}`, {interview: interview})
-    .then(() => {
-      setState(prev => ({...prev, appointments}));
+    return axios.put(`/api/appointments/${id}`, {interview: interview})
+    .then((res) => {
+      setState({...state, appointments});
     })
   }
   function cancelInterview(id) {
-    return axios.delete(` /api/appointments/${id}`)
+    return axios.delete(`/api/appointments/${id}`)
     .then(() => {
-      state.appointments[id].interview = null;
+       setState({...state, appointments: {...state.appointments, [id]:{...state.appointments[id], interview:null}}})
     })
   }
   const parsedAppointment = dailyAppointments.map(appointment => {
