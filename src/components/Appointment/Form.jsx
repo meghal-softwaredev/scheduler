@@ -10,6 +10,7 @@ export default function Form(props) {
   // Reset the input fields of the form
   const reset = () => {
     setStudent("");
+    setError("");
     setInterviewer(null);
   };
 
