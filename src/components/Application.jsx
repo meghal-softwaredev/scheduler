@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import "components/Application.scss";
 import DayList from "./DayList.jsx";
 import Appointment from "./Appointment/index.jsx";
-import axios from "axios";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
 import useApplicationData from "hooks/useApplicationData.js";
 
