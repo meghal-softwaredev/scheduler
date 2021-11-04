@@ -1,3 +1,4 @@
+import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList.jsx";
 import Appointment from "./Appointment/index.jsx";
