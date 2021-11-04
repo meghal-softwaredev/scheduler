@@ -3,16 +3,16 @@ This is a single-page app built on React.js that allows users to book, edit or c
 
 ## Final Product
 Regular view of appointments
-!["Screenshot of home page"]()
+!["Screenshot of home page"](https://github.com/meghalshah210/scheduler/blob/master/docs/home.png)
 
 Book/Edit appointment
-!["Screenshot of book appointment"]()
+!["Screenshot of book appointment"](https://github.com/meghalshah210/scheduler/blob/master/docs/bookInterview.png)
 
 Delete/Edit appointment
-!["Screenshot of delete appointment"]()
+!["Screenshot of delete appointment"](https://github.com/meghalshah210/scheduler/blob/master/docs/delete.png)
 
 Confirmation message before deleting an interview
-!["Screenshot of confirmation message before deleting an interview"]()
+!["Screenshot of confirmation message before deleting an interview"](https://github.com/meghalshah210/scheduler/blob/master/docs/confirmDelete.png)
 
 
 ## Dependencies
