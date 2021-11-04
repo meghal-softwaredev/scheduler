@@ -1,5 +1,6 @@
 import React from "react";
 
+// Status component shows loading status while saving and deleting interview
 export default function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">

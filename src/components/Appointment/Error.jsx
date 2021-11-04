@@ -1,5 +1,6 @@
 import React from "react";
 
+// Error component with Error message and close image
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">

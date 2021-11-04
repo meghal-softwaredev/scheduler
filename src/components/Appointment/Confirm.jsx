@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button.jsx"
 
+//Confirm component with message and two buttons Cancel and Confirm
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

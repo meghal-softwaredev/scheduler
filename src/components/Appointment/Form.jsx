@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button.jsx";
 import InterviewerList from "../InterviewerList.jsx";
 
+// Form component which takes student name and interviewer name as input and has two buttons Cancel and Save
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
@@ -14,11 +15,13 @@ export default function Form(props) {
     setInterviewer(null);
   };
 
+  // cancel will reset input field and calls props.onCancel()
   const cancel = () => {
     reset();
     props.onCancel();
   };
 
+  // validates student name if blank shows error message
   function validate() {
     if (student === "") {
       setError("Student name cannot be blank");

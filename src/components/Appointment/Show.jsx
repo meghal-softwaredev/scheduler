@@ -1,5 +1,6 @@
 import React from "react";
 
+//Show component shows student name, interviewer name for booked appointment and has two buttons Edit and Delete
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">
@@ -12,12 +13,14 @@ export default function Show(props) {
     </section>
     <section className="appointment__card-right">
       <section className="appointment__actions">
+        {/* Edit => edits interview */}
         <img
           className="appointment__actions-button"
           src="images/edit.png"
           alt="Edit"
           onClick={props.onEdit}
         />
+        {/* Delete => deletes interview */}
         <img
           className="appointment__actions-button"
           src="images/trash.png"
