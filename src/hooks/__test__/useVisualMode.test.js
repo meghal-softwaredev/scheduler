@@ -7,18 +7,23 @@ const FIRST = "FIRST";
 const SECOND = "SECOND";
 const THIRD = "THIRD";
 
+//Test to check different visual mode of appointment
 describe("Visual Mode", () => {
+  //default mode should be first
   test("useVisualMode should initialize with default value", () => {
     const { result } = renderHook(() => useVisualMode(FIRST));
 
     expect(result.current.mode).toBe(FIRST);
   });
+  //after first mode - transition to another mode
   test("useVisualMode should transition to another mode", () => {
     const { result } = renderHook(() => useVisualMode(FIRST));
   
     act(() => result.current.transition(SECOND));
     expect(result.current.mode).toBe(SECOND);
   });
+
+  //test checks for previous mode
   test("useVisualMode should return to previous mode", () => {
     const { result } = renderHook(() => useVisualMode(FIRST));
   
@@ -34,12 +39,16 @@ describe("Visual Mode", () => {
     act(() => result.current.back());
     expect(result.current.mode).toBe(FIRST);
   });
+
+  //if mode is first then should not return to previous mode
   test("useVisualMode should not return to previous mode if already at initial", () => {
     const { result } = renderHook(() => useVisualMode(FIRST));
   
     act(() => result.current.back());
     expect(result.current.mode).toBe(FIRST);
   });
+
+  //mode should replace current mode if true is set for transition
   test("useVisualMode should replace the current mode", () => {
     const { result } = renderHook(() => useVisualMode(FIRST));
   

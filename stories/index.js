@@ -19,6 +19,7 @@ import Error from "components/Appointment/Error.jsx";
 import Form from "components/Appointment/Form.jsx";
 import Status from "components/Appointment/Status.jsx";
 
+//Checks Button component in isolation
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -34,7 +35,7 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
-
+//Checks DayListItem component in isolation
   storiesOf("DayListItem", module) 
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -63,7 +64,7 @@ storiesOf("Button", module)
       spots: 0,
     },
   ];
-  
+  //Checks DayList component in isolation
   storiesOf("DayList", module)
     .addParameters({
       backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -83,7 +84,7 @@ storiesOf("Button", module)
       name: "Sylvia Palmer",
       avatar: "https://i.imgur.com/LpaY82x.png"
     };
-    
+//Checks InterviewerListItem component in isolation
 storiesOf("InterviewerListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -118,7 +119,7 @@ storiesOf("InterviewerListItem", module)
     { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
     { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
   ];
-  
+  //Checks InterviewerList component in isolation
   storiesOf("InterviewerList", module)
     .addParameters({
       backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -140,7 +141,7 @@ storiesOf("InterviewerListItem", module)
         onChange={action("setInterviewer")}
       />
     ));
-
+//Checks Appointment component in isolation
 storiesOf("Appointment", module)
   .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }]
