@@ -6,6 +6,7 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
+//Test whether application component renders without crashing
 it("renders without crashing", () => {
   render(<Application />);
 });

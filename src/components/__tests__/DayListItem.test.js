@@ -6,6 +6,7 @@ import DayListItem from "components/DayListItem";
 
 afterEach(cleanup);
 
+// Test whether DayListItem component renders without crashing
 it("renders without crashing", () => {
   render(<DayListItem />);
 });

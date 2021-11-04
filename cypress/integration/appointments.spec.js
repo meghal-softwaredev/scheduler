@@ -1,16 +1,13 @@
-// appointments.spec.js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
+// Testing appointment component
 describe("Appointment", () => {
+  //reset database and visit baseURL before each test
   beforeEach(() => {
     cy.request("GET", "/api/debug/reset");
     cy.visit("/")
       .contains("[data-testid=day]", "Monday");
   })
 
+  //test for book an interview
   it("should book an interview", () => {
     cy.get('[alt="Add"]')
       .first()
@@ -28,7 +25,7 @@ describe("Appointment", () => {
     cy.contains(".appointment__card--show", "Lydia Miller-Jones");
     cy.contains(".appointment__card--show", "Sylvia Palmer");
   });
-
+  //test for edit an interview
   it("should edit an interview", () => {
     cy.get(".appointment__card")
       .first()
@@ -51,6 +48,7 @@ describe("Appointment", () => {
     cy.contains(".appointment__card--show", "Tori Malcolm");
   });
 
+  //test for cancel an interview
   it("should cancel an interview", () => {
     cy.get('[alt="Delete"]')
       .first()

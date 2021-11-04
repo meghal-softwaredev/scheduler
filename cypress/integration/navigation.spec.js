@@ -1,13 +1,11 @@
-// navigation.spec.js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
+// Testing navigation of application
 describe("Navigation", () => {
+  //test to check application is navigating to baseURL
   it("should visit root", () => {
     cy.visit("/");
   });
+
+  //test to navigate to Tuesday with appropriate styles
   it("should navigate to Tuesday", () => {
     cy.visit("/");
     
