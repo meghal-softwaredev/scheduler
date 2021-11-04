@@ -1,6 +1,7 @@
 import React from "react";
 import DayListItem from "./DayListItem.jsx";
 
+// DayList Component renders list of days by rendering DayListItem
 export default function DayList(props) {
 
   return props.days.map(day => 
