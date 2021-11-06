@@ -109,7 +109,7 @@ export default function Appointment(props) {
         onSave={save}
       />)}
 
-      {/* if mode is Error_Save then call Empty component */}
+      {/* if mode is Error_Save then call Error component */}
       {mode === ERROR_SAVE && (
         <Error 
           message="Could not save appointment?"
