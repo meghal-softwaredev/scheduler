@@ -23,6 +23,9 @@ Confirmation message before deleting an interview
 - @testing-library/react-hooks
 - react-test-renderer
 
+## Getting Started
+Install dependencies with npm install
+
 ## Running Webpack Development Server
 
 ```sh
