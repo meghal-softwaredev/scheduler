@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Push circleci-project-setup to Production
           command: |
-            git push https://github.com/meghal-softwaredev/scheduler/tree/circleci-project-setup circleci-project-setup:production
+            git push https://github.com/meghal-softwaredev/scheduler circleci-project-setup:production
 
 workflows:
   version: 2
