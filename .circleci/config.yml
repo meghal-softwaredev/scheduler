@@ -33,10 +33,19 @@ deploy:
     - run:
         name: Push circleci-project-setup to Production
         command: |
-          git push https://github.com/lighthouse-labs/scheduler.git circleci-project-setup:production
+          git push https://github.com/meghal-softwaredev/scheduler.git circleci-project-setup:production
 
 workflows:
   version: 2
-  test:
+  test_and_deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: production
+      - deploy:
+          filters:
+            branches:
+              ignore: production
+          requires:
+            - build
