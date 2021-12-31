@@ -27,7 +27,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "45:01:36:e4:a7:67:51:ea:50:c1:74:95:34:b7:6b:77"
+            - "4a:a9:7e:a4:b9:34:71:ef:7f:1b:91:20:20:c5:1e:30"
       - checkout
       - run:
           name: Push circleci-project-setup to Production
