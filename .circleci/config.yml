@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.16
+
+    working_directory: ~/client
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm test
+
+  deploy:
+    machine: true
+
+    working_directory: ~/client
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "4a:a9:7e:a4:b9:34:71:ef:7f:1b:91:20:20:c5:1e:30"
+      - checkout
+      - run:
+          name: Push master to Production
+          command: |
+            git push https://github.com/meghal-softwaredev/scheduler master:production
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: production
+      - deploy:
+          filters:
+            branches:
+              ignore: production
+          requires:
+            - build
