@@ -19,21 +19,21 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
 
-deploy:
-  machine:
-    enabled: true
+  deploy:
+    machine:
+      enabled: true
 
-  working_directory: ~/client
+    working_directory: ~/client
 
-  steps:
-    - add_ssh_keys:
-        fingerprints:
-          - "45:01:36:e4:a7:67:51:ea:50:c1:74:95:34:b7:6b:77"
-    - checkout
-    - run:
-        name: Push circleci-project-setup to Production
-        command: |
-          git push https://github.com/meghal-softwaredev/scheduler.git circleci-project-setup:production
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "45:01:36:e4:a7:67:51:ea:50:c1:74:95:34:b7:6b:77"
+      - checkout
+      - run:
+          name: Push circleci-project-setup to Production
+          command: |
+            git push https://github.com/meghal-softwaredev/scheduler/tree/circleci-project-setup circleci-project-setup:production
 
 workflows:
   version: 2
